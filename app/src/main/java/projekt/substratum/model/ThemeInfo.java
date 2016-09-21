@@ -14,6 +14,7 @@ public class ThemeInfo {
     private String themeVersion;
     private String sdkLevels;
     private String pluginVersion;
+    private String themeReady;
     private Drawable themeDrawable;
     private Context themeContext;
 
@@ -80,4 +81,13 @@ public class ThemeInfo {
     public void setThemeVersion(String themeVersion) {
         this.themeVersion = themeVersion;
     }
+
+    public String getThemeReadyVariable() {
+        return themeReady;
+    }
+
+    public void setThemeReadyVariable(String themeVisibility) {
+        this.themeReady = themeVisibility;
+    }
+
 }

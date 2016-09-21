@@ -41,6 +41,7 @@ public class References {
     public static String metadataAuthor = "Substratum_Author";
     public static String metadataLegacy = "Substratum_Legacy";
     public static String metadataVersion = "Substratum_Plugin";
+    public static String metadataThemeReady = "Substratum_ThemeReady";
 
     // This int controls the default priority level for legacy overlays
     public static int DEFAULT_PRIORITY = 50;
@@ -267,6 +268,21 @@ public class References {
                         }
                         return mContext.getString(R.string.api_23) + " - " + targetAPI;
                     }
+                }
+            }
+        } catch (Exception e) {
+            //
+        }
+        return null;
+    }
+
+    public static String grabThemeReadyVisibility(Context mContext, String package_name) {
+        try {
+            ApplicationInfo appInfo = mContext.getPackageManager().getApplicationInfo(
+                    package_name, PackageManager.GET_META_DATA);
+            if (appInfo.metaData != null) {
+                if (appInfo.metaData.getString(References.metadataThemeReady) != null) {
+                    return appInfo.metaData.getString(References.metadataThemeReady);
                 }
             }
         } catch (Exception e) {

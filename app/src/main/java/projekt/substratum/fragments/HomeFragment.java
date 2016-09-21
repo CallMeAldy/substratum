@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -261,6 +262,10 @@ public class HomeFragment extends Fragment {
                     References.grabPackageHeroImage(mContext, map.get(map.keySet().toArray()[i]
                             .toString())[1]));
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+            if (prefs.getBoolean("show_theme_ready_indicators", true)) {
+                themeInfo.setThemeReadyVariable(References.grabThemeReadyVisibility(mContext,
+                        map.get(map.keySet().toArray()[i].toString())[1]));
+            }
             if (prefs.getBoolean("show_template_version", false)) {
                 themeInfo.setPluginVersion(References.grabPackageTemplateVersion(mContext,
                         map.get(map.keySet().toArray()[i].toString())[1]));

@@ -246,6 +246,10 @@ public class BootAnimationsFragment extends Fragment {
                     References.grabPackageHeroImage(mContext, map.get(map.keySet().toArray()[i]
                             .toString())[1]));
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+            if (prefs.getBoolean("show_theme_ready_indicators", true)) {
+                themeInfo.setThemeReadyVariable(References.grabThemeReadyVisibility(mContext,
+                        map.get(map.keySet().toArray()[i].toString())[1]));
+            }
             if (prefs.getBoolean("show_template_version", false)) {
                 themeInfo.setPluginVersion(References.grabPackageTemplateVersion(mContext,
                         map.get(map.keySet().toArray()[i].toString())[1]));
